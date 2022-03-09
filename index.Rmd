@@ -4,6 +4,8 @@ title: "Welcome to my website!👋"
 site: distill::distill_website
 ---
 
+
+
 ## [Introduction]{.ul}
 
 **Sanjay Hamal** is a data analyst and a clinical programmer. Sanjay has been directly involved in multiple data analytics projects including **clinical trials analysis** that requires good **SAS, Python and R** programming skills. He also has experience in clinical programming (with SDTM and ADaM datasets) and was offered training by **Nimble Clinical Research LLC** based in the US.
