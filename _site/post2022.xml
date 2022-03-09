@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Sanjay Hamal</title>
+    <link>https://sanjayhamal.com.np</link>
+    <atom:link href="https://sanjayhamal.com.np/post2022.xml" rel="self" type="application/rss+xml"/>
+    <description>Welcome to my Blog!
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Not just 'R or Python' but 'R and Python'!</title>
+      <dc:creator>Sanjay Hamal</dc:creator>
+      <link>https://sanjayhamal.com.np/post2022/2022-03-07-aboutreticulate</link>
+      <description>Interoperability between R and Python is too powerful!</description>
+      <category>R</category>
+      <category>Python</category>
+      <guid>https://sanjayhamal.com.np/post2022/2022-03-07-aboutreticulate</guid>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://sanjayhamal.com.np/post2022/2022-03-07-aboutreticulate/reticulate.jpg" medium="image" type="image/jpeg"/>
+    </item>
+  </channel>
+</rss>

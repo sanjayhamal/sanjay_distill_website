@@ -1,0 +1,60 @@
+---
+title: Sanjay Hamal
+image: "images/sanjay1.png"
+links:
+  - label: Github
+    url: "https://github.com/sanjayhamal"
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/sanjay-hamal-8323b3111/"
+  
+  - label: Email
+    url: "mailto:contact@sanjayhamal.com.np"
+output:
+  postcards::trestles
+---
+
+## [Bio]{.ul}
+
+Sanjay Hamal is a data science enthusiast and is mostly interested in data analysis.
+
+## [Education]{.ul}
+
+**Kathmandu University** \| Nepal, Dhulikhel
+
+Btech in Biotechnology \| August 2014 - September 2018
+
+## [Experience]{.ul}
+
+**Numeric Mind/Nimble Clinical Research LLC**
+
+\|Clinical Programmer/Data Analyst\|
+
+June 2020 - Feb 2022
+
+**Aastha Scientific Research Service Private Limited**
+
+\|Data Analyst\|
+
+Jan 2019 - Feb 2020
+
+## [Programming skills]{.ul}
+
+[SAS]{.ul}
+
+-   Data manipulation using Base SAS and Proc SQL
+
+-   MACROS
+
+-   Report Generation
+
+[R programming]{.ul}
+
+-   Data tidying, transforming, modeling and visualizaiton.
+
+-   Development of dashboards using **Shiny** in R.
+
+[Python programming]{.ul}
+
+-   Basic Python and Data manipulation using Pandas and Numpy.
+
+-   Data visualization with Matplotlib and Seaborn.
