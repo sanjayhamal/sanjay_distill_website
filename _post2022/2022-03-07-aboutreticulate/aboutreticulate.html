@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Not just 'R or Python' but 'R and Python'!</title>
+
+  <meta property="description" itemprop="description" content="Interoperability between R and Python is too powerful!"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-03-07"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-03-07"/>
+  <meta name="article:author" content="Sanjay Hamal"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Not just &#39;R or Python&#39; but &#39;R and Python&#39;!"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Interoperability between R and Python is too powerful!"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Not just &#39;R or Python&#39; but &#39;R and Python&#39;!"/>
+  <meta property="twitter:description" content="Interoperability between R and Python is too powerful!"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview","categories"]}},"value":[{"type":"character","attributes":{},"value":["Not just 'R or Python' but 'R and Python'!"]},{"type":"character","attributes":{},"value":["Interoperability between R and Python is too powerful! \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Sanjay Hamal"]}]}]},{"type":"character","attributes":{},"value":["2022-03-07"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","highlight","toc","toc_depth","number_sections"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"NULL"},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["reticulate.jpg"]},{"type":"character","attributes":{},"value":["R","Python"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["aboutreticulate_files/anchor-4.2.2/anchor.min.js","aboutreticulate_files/bowser-1.9.3/bowser.min.js","aboutreticulate_files/crosstalk-1.1.1/css/crosstalk.css","aboutreticulate_files/crosstalk-1.1.1/js/crosstalk.js","aboutreticulate_files/crosstalk-1.1.1/js/crosstalk.js.map","aboutreticulate_files/crosstalk-1.1.1/js/crosstalk.min.js","aboutreticulate_files/crosstalk-1.1.1/js/crosstalk.min.js.map","aboutreticulate_files/distill-2.2.21/template.v2.js","aboutreticulate_files/header-attrs-2.11/header-attrs.js","aboutreticulate_files/htmlwidgets-1.5.3/htmlwidgets.js","aboutreticulate_files/jquery-3.6.0/jquery-3.6.0.js","aboutreticulate_files/jquery-3.6.0/jquery-3.6.0.min.js","aboutreticulate_files/jquery-3.6.0/jquery-3.6.0.min.map","aboutreticulate_files/plotly-binding-4.9.3/plotly.js","aboutreticulate_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css","aboutreticulate_files/plotly-main-1.57.1/plotly-latest.min.js","aboutreticulate_files/popper-2.6.0/popper.min.js","aboutreticulate_files/tippy-6.2.7/tippy-bundle.umd.min.js","aboutreticulate_files/tippy-6.2.7/tippy-light-border.css","aboutreticulate_files/tippy-6.2.7/tippy.css","aboutreticulate_files/tippy-6.2.7/tippy.umd.min.js","aboutreticulate_files/typedarray-0.1/typedarray.min.js","aboutreticulate_files/webcomponents-2.0.0/webcomponents.js","cars.csv","chunks.JPG","instl_pck.JPG","libs/header-attrs-2.11/header-attrs.js","libs/pagedtable-1.1/css/pagedtable.css","libs/pagedtable-1.1/js/pagedtable.js","libs/remark-css-0.0.1/default-fonts.css","libs/remark-css-0.0.1/default.css","pandas_install.JPG","reticulate.JPG","time.py"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="aboutreticulate_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="aboutreticulate_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="aboutreticulate_files/plotly-binding-4.9.3/plotly.js"></script>
+  <script src="aboutreticulate_files/typedarray-0.1/typedarray.min.js"></script>
+  <script src="aboutreticulate_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="aboutreticulate_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="aboutreticulate_files/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="aboutreticulate_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="aboutreticulate_files/plotly-main-1.57.1/plotly-latest.min.js"></script>
+  <script src="aboutreticulate_files/popper-2.6.0/popper.min.js"></script>
+  <link href="aboutreticulate_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="aboutreticulate_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="aboutreticulate_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="aboutreticulate_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="aboutreticulate_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="aboutreticulate_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="aboutreticulate_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Not just 'R or Python' but 'R and Python'!","description":"Interoperability between R and Python is too powerful!","authors":[{"author":"Sanjay Hamal","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-03-07T00:00:00.000+05:45","citationText":"Hamal, 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Not just ‘R or Python’ but ‘R and Python’!</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">R</div>
+<div class="dt=tag">Python</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Interoperability between R and Python is too powerful!</p></p>
+</div>
+
+<div class="d-byline">
+  Sanjay Hamal  
+  
+<br/>2022-03-07
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#what-is-reticulate">What is reticulate?</a></li>
+<li><a href="#installation-and-setup-for-this-demo">Installation and setup for this demo</a></li>
+<li><a href="#loading-library-and-setting-conda.">Loading library and setting conda.</a></li>
+<li><a href="#using-python-code-to-import-a-csv-file.">Using python code to import a csv file.</a></li>
+<li><a href="#adding-a-new-column-in-dataframe.">Adding a new column in dataframe.</a></li>
+<li><a href="#converting-dataframes-in-python-to-r">Converting dataframes in python to R</a></li>
+<li><a href="#source-python-code-or-file">Source Python code or File</a></li>
+<li><a href="#convert-dataframe-in-r-to-python-dataframe.">Convert dataframe in R to Python dataframe.</a></li>
+<li><a href="#interactive-graph-in-r-with-python-dataframe">Interactive graph in R with python dataframe</a></li>
+</ul>
+</nav>
+</div>
+<blockquote>
+<h5 id="before-going-through-this-article-you-should-have-some-basic-knowledge-of-r-programming-python-programmingpandas-r-studio-and-r-markdown.">Before going through this article, you should have some basic knowledge of R programming, Python programming(Pandas), R Studio and R markdown.</h5>
+</blockquote>
+<p>There is always a perennial debate on which programming language is better. Both languages, R and Python, have their own communities and support groups. None of them are wrong. Both R and Python languages have their own pros and cons and each language is better suited for different scenarios. Rather than debating on which language is better, in my opinion, we should try to incorporate both languages in our work. And <strong>Reticulate</strong> package in R helps to incorporate Python codes in R. Similar kinds of libraries(rpy2) are available in Python to incorporate R codes in Python.</p>
+<p>The goal of this article is to get you started with the basic interaction between R and Python dataframes using <strong>Rmarkdown</strong> and <strong>Reticulate</strong> package. In this article, we are going to cover the following things.</p>
+<ul>
+<li>What is reticulate?</li>
+<li>Installation and setup for this demo</li>
+<li>Loading library and setting conda</li>
+<li>Using python code to import a csv file</li>
+<li>Adding a new column in dataframe</li>
+<li>Source Python code or File</li>
+<li>Convert dataframe in R to Python dataframe</li>
+<li>Interactive graphs in R with python dataframe</li>
+</ul>
+<hr />
+<h2 id="what-is-reticulate">What is reticulate?</h2>
+<p>Reticulate is an R package that can assist us to interact between R and Python. It is a bridge between R and Python.</p>
+<hr />
+<h2 id="installation-and-setup-for-this-demo">Installation and setup for this demo</h2>
+<p>Let’s get started. Firstly, you need to install Reticulate package (<a href="https://rstudio.github.io/reticulate/">Installation and setup</a>)and then install Pandas (<a href="https://rstudio.github.io/reticulate/articles/python_packages.html">Installing python packages</a>) for this short demo.</p>
+<p>In your console, execute:</p>
+<p><strong>install.packages(“reticulate”)</strong> and then</p>
+<p><strong>reticulate::conda_install(“r-reticulate”, “pandas”)</strong></p>
+<blockquote>
+<p>Rmarkdown can execute both R and Python codes. You can write both R and Python codes in their respective code chunks:</p>
+</blockquote>
+<p><img src="chunks.JPG" /></p>
+<hr />
+<h2 id="loading-library-and-setting-conda.">Loading library and setting conda.</h2>
+<p>Lets load the library(<strong>reticulate</strong>) and set the path to a ‘conda’ executable. In this case, appropriate ‘conda’ is automatically set. To know more, execute <strong>?reticulate</strong> and <strong>?conda_python</strong> in your R console.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>#R code
+
+library(reticulate) #&lt;&lt;
+conda_python()      #&lt;&lt;</code></pre>
+<pre><code>[1] &quot;C:\\Users\\Sanjay\\AppData\\Local\\r-miniconda\\envs\\r-reticulate\\python.exe&quot;</code></pre>
+</div>
+<p>It by default sets the version of Python found on your path. But you can also <a href="https://rstudio.github.io/reticulate/reference/use_python.html">set the path to your desired python version</a>.</p>
+<hr />
+<h2 id="using-python-code-to-import-a-csv-file.">Using python code to import a csv file.</h2>
+<p>Copy the path in the link <a href="https://github.com/sanjayhamal/Files-for-you/blob/main/cars.csv">cars.csv</a> to provide path to your csv file.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>#Python code
+
+import pandas as pd
+car_python = pd.read_csv(&quot;cars.csv&quot;)
+car_python.head(n=10)</code></pre>
+<pre><code>   speed  dist
+0      4     2
+1      4    10
+2      7     4
+3      7    22
+4      8    16
+5      9    10
+6     10    18
+7     10    26
+8     10    34
+9     11    17</code></pre>
+</div>
+<hr />
+<h2 id="adding-a-new-column-in-dataframe.">Adding a new column in dataframe.</h2>
+<blockquote>
+<p>Let’s add a new column-&gt;“Speed_category” in our dataframe using pandas. - If the speed is less than 10 and greater than zero, label it as “Low speed”. - If the speed is between 10 and 20, label it as “Medium speed” - Label the rest as “High speed”. We will use this column later to create a 3D graph.</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+#Python code
+
+car_python[&quot;Speed_category&quot;]= &quot;&quot;
+
+for i in range(len(car_python)):
+  if car_python.loc[i, &quot;speed&quot;]&gt;0 and car_python.loc[i,&quot;speed&quot;]&lt;=10:
+    car_python.loc[i, &quot;Speed_category&quot;]= &quot;Low speed&quot;
+  elif car_python.loc[i, &quot;speed&quot;]&gt;10 and car_python.loc[i, &quot;speed&quot;]&lt;20:
+    car_python.loc[i, &quot;Speed_category&quot;]= &quot;Medium speed&quot;  
+  else:
+    car_python.loc[i, &quot;Speed_category&quot;]= &quot;High speed&quot;
+
+car_python.head(n=10)</code></pre>
+<pre><code>   speed  dist Speed_category
+0      4     2      Low speed
+1      4    10      Low speed
+2      7     4      Low speed
+3      7    22      Low speed
+4      8    16      Low speed
+5      9    10      Low speed
+6     10    18      Low speed
+7     10    26      Low speed
+8     10    34      Low speed
+9     11    17   Medium speed</code></pre>
+</div>
+<hr />
+<h2 id="converting-dataframes-in-python-to-r">Converting dataframes in python to R</h2>
+<blockquote>
+<p>Use py$:</p>
+</blockquote>
+<p>Here, <strong>car_python</strong> is a variable in python that stores a dataframe, which in the code below, is used by R and stored as a dataframe in an R variable, <strong>R_cars</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>#R code
+
+R_cars&lt;- py$car_python 
+
+head(R_cars, n=4)</code></pre>
+<pre><code>  speed dist Speed_category
+1     4    2      Low speed
+2     4   10      Low speed
+3     7    4      Low speed
+4     7   22      Low speed</code></pre>
+</div>
+<hr />
+<h2 id="source-python-code-or-file">Source Python code or File</h2>
+<p>A python file, <a href="https://github.com/sanjayhamal/Files-for-you/blob/main/time.py">time.py</a> contains the following python function to convert speed and distance to time. Download it. In the next step, we will see how to use the <strong>time(dist, speed)</strong> function from “time.py” file to our R code :</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code># time.py 
+def time(DIST, SPEED):
+  return DIST/SPEED</code></pre>
+</div>
+<blockquote>
+<p>Use source_python(“Path to your python file”) and use the python functions directly to your R code.</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>#R code
+
+source_python(&quot;time.py&quot;)
+
+for(i in seq(nrow(R_cars))){
+  
+  R_cars[i, &quot;Time&quot;]= 
+    time(R_cars[i, &quot;dist&quot;], R_cars[i, &quot;speed&quot;])
+  
+}
+
+head(R_cars)</code></pre>
+<pre><code>  speed dist Speed_category      Time
+1     4    2      Low speed 0.5000000
+2     4   10      Low speed 2.5000000
+3     7    4      Low speed 0.5714286
+4     7   22      Low speed 3.1428571
+5     8   16      Low speed 2.0000000
+6     9   10      Low speed 1.1111111</code></pre>
+</div>
+<h2 id="convert-dataframe-in-r-to-python-dataframe.">Convert dataframe in R to Python dataframe.</h2>
+<blockquote>
+<p>Use ‘r.’ .</p>
+</blockquote>
+<p>In the code below, <strong>R_cars</strong> is a variable in R which is called in a python code and converted to python dataframe and stored in a variable, <strong>python_cars2</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>#Python code
+
+python_cars2 = r.R_cars   
+
+python_cars2.head(n=5)</code></pre>
+<pre><code>   speed  dist Speed_category      Time
+0    4.0   2.0      Low speed  0.500000
+1    4.0  10.0      Low speed  2.500000
+2    7.0   4.0      Low speed  0.571429
+3    7.0  22.0      Low speed  3.142857
+4    8.0  16.0      Low speed  2.000000</code></pre>
+</div>
+<h2 id="interactive-graph-in-r-with-python-dataframe">Interactive graph in R with python dataframe</h2>
+<blockquote>
+<p>Here, we are creating a scatter plot, line plot and a regression plot combined using a python dataframe,“python_cars2” in R code. -ggplot creates visually appealing graphs in R and ggplotly() function converts ggplot graphs to interactive ones.</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>#R code
+
+library(ggplot2)
+library(plotly)
+
+my_plt&lt;- ggplot(data = py$python_cars2,
+                aes(speed, dist))+
+  geom_point(aes( color= Speed_category, shape= Speed_category))+
+  geom_line(color= &#39;orange&#39;, alpha=0.5, linetype=&#39;dashed&#39;)+
+  geom_smooth(se= F, color=&#39;red&#39;)
+
+
+
+my_plt %&gt;% ggplotly()</code></pre>
+<div id="htmlwidget-d21460b091da4e17144b" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d21460b091da4e17144b">{"x":{"data":[{"x":[20,20,20,20,20,22,23,24,24,24,24,25],"y":[32,48,52,56,64,66,54,70,92,93,120,85],"text":["Speed_category: High speed<br />Speed_category: High speed<br />speed: 20<br />dist:  32","Speed_category: High speed<br />Speed_category: High speed<br />speed: 20<br />dist:  48","Speed_category: High speed<br />Speed_category: High speed<br />speed: 20<br />dist:  52","Speed_category: High speed<br />Speed_category: High speed<br />speed: 20<br />dist:  56","Speed_category: High speed<br />Speed_category: High speed<br />speed: 20<br />dist:  64","Speed_category: High speed<br />Speed_category: High speed<br />speed: 22<br />dist:  66","Speed_category: High speed<br />Speed_category: High speed<br />speed: 23<br />dist:  54","Speed_category: High speed<br />Speed_category: High speed<br />speed: 24<br />dist:  70","Speed_category: High speed<br />Speed_category: High speed<br />speed: 24<br />dist:  92","Speed_category: High speed<br />Speed_category: High speed<br />speed: 24<br />dist:  93","Speed_category: High speed<br />Speed_category: High speed<br />speed: 24<br />dist: 120","Speed_category: High speed<br />Speed_category: High speed<br />speed: 25<br />dist:  85"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"High speed","legendgroup":"High speed","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4,4,7,7,8,9,10,10,10],"y":[2,10,4,22,16,10,18,26,34],"text":["Speed_category: Low speed<br />Speed_category: Low speed<br />speed:  4<br />dist:   2","Speed_category: Low speed<br />Speed_category: Low speed<br />speed:  4<br />dist:  10","Speed_category: Low speed<br />Speed_category: Low speed<br />speed:  7<br />dist:   4","Speed_category: Low speed<br />Speed_category: Low speed<br />speed:  7<br />dist:  22","Speed_category: Low speed<br />Speed_category: Low speed<br />speed:  8<br />dist:  16","Speed_category: Low speed<br />Speed_category: Low speed<br />speed:  9<br />dist:  10","Speed_category: Low speed<br />Speed_category: Low speed<br />speed: 10<br />dist:  18","Speed_category: Low speed<br />Speed_category: Low speed<br />speed: 10<br />dist:  26","Speed_category: Low speed<br />Speed_category: Low speed<br />speed: 10<br />dist:  34"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":5.66929133858268,"symbol":"triangle-up","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"Low speed","legendgroup":"Low speed","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,17,17,18,18,18,18,19,19,19],"y":[17,28,14,20,24,28,26,34,34,46,26,36,60,80,20,26,54,32,40,32,40,50,42,56,76,84,36,46,68],"text":["Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 11<br />dist:  17","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 11<br />dist:  28","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 12<br />dist:  14","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 12<br />dist:  20","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 12<br />dist:  24","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 12<br />dist:  28","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 13<br />dist:  26","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 13<br />dist:  34","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 13<br />dist:  34","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 13<br />dist:  46","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 14<br />dist:  26","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 14<br />dist:  36","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 14<br />dist:  60","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 14<br />dist:  80","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 15<br />dist:  20","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 15<br />dist:  26","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 15<br />dist:  54","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 16<br />dist:  32","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 16<br />dist:  40","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 17<br />dist:  32","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 17<br />dist:  40","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 17<br />dist:  50","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 18<br />dist:  42","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 18<br />dist:  56","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 18<br />dist:  76","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 18<br />dist:  84","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 19<br />dist:  36","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 19<br />dist:  46","Speed_category: Medium speed<br />Speed_category: Medium speed<br />speed: 19<br />dist:  68"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":5.66929133858268,"symbol":"square","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"Medium speed","legendgroup":"Medium speed","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4,4,7,7,8,9,10,10,10,11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,17,17,18,18,18,18,19,19,19,20,20,20,20,20,22,23,24,24,24,24,25],"y":[2,10,4,22,16,10,18,26,34,17,28,14,20,24,28,26,34,34,46,26,36,60,80,20,26,54,32,40,32,40,50,42,56,76,84,36,46,68,32,48,52,56,64,66,54,70,92,93,120,85],"text":["speed:  4<br />dist:   2","speed:  4<br />dist:  10","speed:  7<br />dist:   4","speed:  7<br />dist:  22","speed:  8<br />dist:  16","speed:  9<br />dist:  10","speed: 10<br />dist:  18","speed: 10<br />dist:  26","speed: 10<br />dist:  34","speed: 11<br />dist:  17","speed: 11<br />dist:  28","speed: 12<br />dist:  14","speed: 12<br />dist:  20","speed: 12<br />dist:  24","speed: 12<br />dist:  28","speed: 13<br />dist:  26","speed: 13<br />dist:  34","speed: 13<br />dist:  34","speed: 13<br />dist:  46","speed: 14<br />dist:  26","speed: 14<br />dist:  36","speed: 14<br />dist:  60","speed: 14<br />dist:  80","speed: 15<br />dist:  20","speed: 15<br />dist:  26","speed: 15<br />dist:  54","speed: 16<br />dist:  32","speed: 16<br />dist:  40","speed: 17<br />dist:  32","speed: 17<br />dist:  40","speed: 17<br />dist:  50","speed: 18<br />dist:  42","speed: 18<br />dist:  56","speed: 18<br />dist:  76","speed: 18<br />dist:  84","speed: 19<br />dist:  36","speed: 19<br />dist:  46","speed: 19<br />dist:  68","speed: 20<br />dist:  32","speed: 20<br />dist:  48","speed: 20<br />dist:  52","speed: 20<br />dist:  56","speed: 20<br />dist:  64","speed: 22<br />dist:  66","speed: 23<br />dist:  54","speed: 24<br />dist:  70","speed: 24<br />dist:  92","speed: 24<br />dist:  93","speed: 24<br />dist: 120","speed: 25<br />dist:  85"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(255,165,0,0.5)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4,4.26582278481013,4.53164556962025,4.79746835443038,5.06329113924051,5.32911392405063,5.59493670886076,5.86075949367089,6.12658227848101,6.39240506329114,6.65822784810127,6.92405063291139,7.18987341772152,7.45569620253165,7.72151898734177,7.9873417721519,8.25316455696202,8.51898734177215,8.78481012658228,9.05063291139241,9.31645569620253,9.58227848101266,9.84810126582278,10.1139240506329,10.379746835443,10.6455696202532,10.9113924050633,11.1772151898734,11.4430379746835,11.7088607594937,11.9746835443038,12.2405063291139,12.506329113924,12.7721518987342,13.0379746835443,13.3037974683544,13.5696202531646,13.8354430379747,14.1012658227848,14.3670886075949,14.6329113924051,14.8987341772152,15.1645569620253,15.4303797468354,15.6962025316456,15.9620253164557,16.2278481012658,16.4936708860759,16.7594936708861,17.0253164556962,17.2911392405063,17.5569620253165,17.8227848101266,18.0886075949367,18.3544303797468,18.620253164557,18.8860759493671,19.1518987341772,19.4177215189873,19.6835443037975,19.9493670886076,20.2151898734177,20.4810126582278,20.746835443038,21.0126582278481,21.2784810126582,21.5443037974684,21.8101265822785,22.0759493670886,22.3417721518987,22.6075949367089,22.873417721519,23.1392405063291,23.4050632911392,23.6708860759494,23.9367088607595,24.2025316455696,24.4683544303797,24.7341772151899,25],"y":[5.89362799029165,6.36979648949433,6.86770195664437,7.38718087807426,7.9280697401165,8.49020502910359,9.07342323136803,9.67756083324231,10.3024543210589,10.9479401811504,11.6138548998492,12.3000349634879,13.0063168583989,13.7325370709147,14.4785320873679,15.2441383940909,16.038951302272,16.8704020859224,17.7318371567465,18.6165760664486,19.5179383667326,20.4292436093027,21.3438113458629,22.2594025349227,23.2050646498759,24.1811879104838,25.1802192106031,26.194605444091,27.2167935048044,28.2392302866005,29.2543626833362,30.2703236243659,31.3016802989947,32.3404850587728,33.3788237186911,34.4217988461122,35.4709130603759,36.5204738079061,37.5706971022114,38.6617753842618,39.7622911865459,40.8224050703758,41.8238137785629,42.8492416136034,43.8863825351748,44.9116221234058,45.9013459584251,46.8319396203613,47.6797886893433,48.4206693130199,48.9736315769786,49.3526418182079,49.641294401509,49.9231836916834,50.2819040535325,50.8010498518576,51.56421545146,52.6039124963778,53.7369414480156,54.9387183256612,56.2108844111871,57.5550809864658,58.9729493333699,60.4661307337718,62.036266469544,63.6849978225591,65.4139660746895,67.2248125078077,69.1188428195369,71.0918017973586,73.1428757638376,75.2733152128232,77.484370638165,79.7772925337125,82.1533313933152,84.6137377108226,87.1597619800843,89.7926546949496,92.5136663492682,95.3240474368896],"text":["speed:  4.000000<br />dist:  5.893628","speed:  4.265823<br />dist:  6.369796","speed:  4.531646<br />dist:  6.867702","speed:  4.797468<br />dist:  7.387181","speed:  5.063291<br />dist:  7.928070","speed:  5.329114<br />dist:  8.490205","speed:  5.594937<br />dist:  9.073423","speed:  5.860759<br />dist:  9.677561","speed:  6.126582<br />dist: 10.302454","speed:  6.392405<br />dist: 10.947940","speed:  6.658228<br />dist: 11.613855","speed:  6.924051<br />dist: 12.300035","speed:  7.189873<br />dist: 13.006317","speed:  7.455696<br />dist: 13.732537","speed:  7.721519<br />dist: 14.478532","speed:  7.987342<br />dist: 15.244138","speed:  8.253165<br />dist: 16.038951","speed:  8.518987<br />dist: 16.870402","speed:  8.784810<br />dist: 17.731837","speed:  9.050633<br />dist: 18.616576","speed:  9.316456<br />dist: 19.517938","speed:  9.582278<br />dist: 20.429244","speed:  9.848101<br />dist: 21.343811","speed: 10.113924<br />dist: 22.259403","speed: 10.379747<br />dist: 23.205065","speed: 10.645570<br />dist: 24.181188","speed: 10.911392<br />dist: 25.180219","speed: 11.177215<br />dist: 26.194605","speed: 11.443038<br />dist: 27.216794","speed: 11.708861<br />dist: 28.239230","speed: 11.974684<br />dist: 29.254363","speed: 12.240506<br />dist: 30.270324","speed: 12.506329<br />dist: 31.301680","speed: 12.772152<br />dist: 32.340485","speed: 13.037975<br />dist: 33.378824","speed: 13.303797<br />dist: 34.421799","speed: 13.569620<br />dist: 35.470913","speed: 13.835443<br />dist: 36.520474","speed: 14.101266<br />dist: 37.570697","speed: 14.367089<br />dist: 38.661775","speed: 14.632911<br />dist: 39.762291","speed: 14.898734<br />dist: 40.822405","speed: 15.164557<br />dist: 41.823814","speed: 15.430380<br />dist: 42.849242","speed: 15.696203<br />dist: 43.886383","speed: 15.962025<br />dist: 44.911622","speed: 16.227848<br />dist: 45.901346","speed: 16.493671<br />dist: 46.831940","speed: 16.759494<br />dist: 47.679789","speed: 17.025316<br />dist: 48.420669","speed: 17.291139<br />dist: 48.973632","speed: 17.556962<br />dist: 49.352642","speed: 17.822785<br />dist: 49.641294","speed: 18.088608<br />dist: 49.923184","speed: 18.354430<br />dist: 50.281904","speed: 18.620253<br />dist: 50.801050","speed: 18.886076<br />dist: 51.564215","speed: 19.151899<br />dist: 52.603912","speed: 19.417722<br />dist: 53.736941","speed: 19.683544<br />dist: 54.938718","speed: 19.949367<br />dist: 56.210884","speed: 20.215190<br />dist: 57.555081","speed: 20.481013<br />dist: 58.972949","speed: 20.746835<br />dist: 60.466131","speed: 21.012658<br />dist: 62.036266","speed: 21.278481<br />dist: 63.684998","speed: 21.544304<br />dist: 65.413966","speed: 21.810127<br />dist: 67.224813","speed: 22.075949<br />dist: 69.118843","speed: 22.341772<br />dist: 71.091802","speed: 22.607595<br />dist: 73.142876","speed: 22.873418<br />dist: 75.273315","speed: 23.139241<br />dist: 77.484371","speed: 23.405063<br />dist: 79.777293","speed: 23.670886<br />dist: 82.153331","speed: 23.936709<br />dist: 84.613738","speed: 24.202532<br />dist: 87.159762","speed: 24.468354<br />dist: 89.792655","speed: 24.734177<br />dist: 92.513666","speed: 25.000000<br />dist: 95.324047"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(255,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":27.8721461187215,"r":7.30593607305936,"b":41.8264840182648,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2.95,26.05],"tickmode":"array","ticktext":["5","10","15","20","25"],"tickvals":[5,10,15,20,25],"categoryorder":"array","categoryarray":["5","10","15","20","25"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"speed","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.9,125.9],"tickmode":"array","ticktext":["0","25","50","75","100","125"],"tickvals":[0,25,50,75,100,125],"categoryorder":"array","categoryarray":["0","25","50","75","100","125"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"dist","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.959399606299213},"annotations":[{"text":"Speed_category","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"387c7fbdb7d":{"colour":{},"shape":{},"x":{},"y":{},"type":"scatter"},"387c3c182302":{"x":{},"y":{}},"387c47d1f58":{"x":{},"y":{}}},"cur_data":"387c7fbdb7d","visdat":{"387c7fbdb7d":["function (y) ","x"],"387c3c182302":["function (y) ","x"],"387c47d1f58":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<blockquote>
+<p>3D plots using plotly and python dataframe.</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code># R code
+
+my_plot3&lt;-plot_ly(data = py$python_cars2,
+                  x=~speed,
+                  y=~dist,
+                  z=~Time) %&gt;% 
+  add_markers(color= ~Speed_category)
+
+my_plot3</code></pre>
+<div id="htmlwidget-35c4c69bbecb2afba75d" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-35c4c69bbecb2afba75d">{"x":{"visdat":{"387c616f612a":["function () ","plotlyVisDat"]},"cur_data":"387c616f612a","attrs":{"387c616f612a":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","color":{},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"speed"},"yaxis":{"title":"dist"},"zaxis":{"title":"Time"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[20,20,20,20,20,22,23,24,24,24,24,25],"y":[32,48,52,56,64,66,54,70,92,93,120,85],"z":[1.6,2.4,2.6,2.8,3.2,3,2.34782608695652,2.91666666666667,3.83333333333333,3.875,5,3.4],"type":"scatter3d","mode":"markers","name":"High speed","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[4,4,7,7,8,9,10,10,10],"y":[2,10,4,22,16,10,18,26,34],"z":[0.5,2.5,0.571428571428571,3.14285714285714,2,1.11111111111111,1.8,2.6,3.4],"type":"scatter3d","mode":"markers","name":"Low speed","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"frame":null},{"x":[11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,17,17,18,18,18,18,19,19,19],"y":[17,28,14,20,24,28,26,34,34,46,26,36,60,80,20,26,54,32,40,32,40,50,42,56,76,84,36,46,68],"z":[1.54545454545455,2.54545454545455,1.16666666666667,1.66666666666667,2,2.33333333333333,2,2.61538461538462,2.61538461538462,3.53846153846154,1.85714285714286,2.57142857142857,4.28571428571429,5.71428571428571,1.33333333333333,1.73333333333333,3.6,2,2.5,1.88235294117647,2.35294117647059,2.94117647058824,2.33333333333333,3.11111111111111,4.22222222222222,4.66666666666667,1.89473684210526,2.42105263157895,3.57894736842105],"type":"scatter3d","mode":"markers","name":"Medium speed","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<hr />
+<p>To recapitulate, we learned about Reticulate and also viewed a short demonstration about interoperability between R and Python using the <strong>Reticulate</strong> package.</p>
+<blockquote>
+<p>To learn more about Reticulate package, visit <a href="https://rstudio.github.io/reticulate/">Reticulate</a>.</p>
+</blockquote>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

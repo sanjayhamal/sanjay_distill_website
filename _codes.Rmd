@@ -1,0 +1,18 @@
+---
+title: "Untitled"
+author: "SanjayHamal"
+date: "3/7/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(distill)
+create_post(title = "About me")
+create_post(title = "School")
+
+```
+

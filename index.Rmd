@@ -1,5 +1,14 @@
 ---
-site: blogdown:::blogdown_site
+title: "Welcome to my website!👋"
+
+site: distill::distill_website
 ---
 
-<!-- This file is for blogdown only. Please do not edit it. -->
+## [Introduction]{.ul}
+
+**Sanjay Hamal** is a data analyst and a clinical programmer. Sanjay has been directly involved in multiple data analytics projects including **clinical trials analysis** that requires good **SAS, Python and R** programming skills. He also has experience in clinical programming (with SDTM and ADaM datasets) and was offered training by **Nimble Clinical Research LLC** based in the US.
+
+---
+## [What is the website about?]{.ul}
+
+Here, you can find more about me and my journey. I also publish various articles related to data science.
