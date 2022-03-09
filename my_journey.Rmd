@@ -1,6 +1,6 @@
 ---
 title: Sanjay Hamal
-image: "images/sanjay1.png"
+image: "sanjay1.png"
 links:
   - label: Github
     url: "https://github.com/sanjayhamal"
