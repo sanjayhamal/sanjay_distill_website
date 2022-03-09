@@ -15,7 +15,7 @@ output:
 
 ## [Bio]{.ul}
 
-Sanjay Hamal is a data science enthusiast and is mostly interested in data analysis.
+ Hamal is a data science enthusiast and is mostly interested in data analysis.
 
 ## [Education]{.ul}
 
