@@ -28,5 +28,5 @@ collections:
       hidden: true
     share: [twitter, linkedin, facebook]
     
-
+google_analytics: "UA-222586639-1"
 output: distill::distill_article

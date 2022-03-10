@@ -6,28 +6,28 @@
       "description": "Sorry! No articles!!\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-03-10T19:52:10+05:45"
+      "last_modified": "2022-03-10T21:26:35+05:45"
     },
     {
       "path": "index.html",
       "title": "Welcome to my website!👋",
       "author": [],
       "contents": "\r\nIntroduction\r\nSanjay Hamal is a data analyst and a clinical programmer. Sanjay has been directly involved in multiple data analytics projects including clinical trials analysis that requires good SAS, Python and R programming skills. He also has experience in clinical programming (with SDTM and ADaM datasets) and was offered training by Nimble Clinical Research LLC based in the US.\r\nWhat is the website about?\r\nHere, you can find more about me and my journey. I also publish various articles related to data science.\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-03-10T19:52:11+05:45"
+      "last_modified": "2022-03-10T21:26:35+05:45"
     },
     {
       "path": "my_journey.html",
       "title": "Sanjay Hamal",
       "author": [],
       "contents": "\r\n\r\n          \r\n          \r\n          Sanjay Hamal\r\n          \r\n          \r\n          Home\r\n          My journey!\r\n          \r\n          \r\n          Articles\r\n           \r\n          ▾\r\n          \r\n          \r\n          2022\r\n          Posts\r\n          \r\n          \r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            \r\n              \r\n            \r\n              Sanjay Hamal\r\n            \r\n            \r\n              \r\n                \r\n                    \r\n                      \r\n                        Github\r\n                      \r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      \r\n                        LinkedIn\r\n                      \r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      \r\n                        Email\r\n                      \r\n                    \r\n                  \r\n                                  \r\n            \r\n          \r\n        \r\n        \r\n        \r\n          \r\n            \r\n            Bio\r\n            Sanjay Hamal is a data science enthusiast and is mostly interested in data analysis.\r\n            \r\n            \r\n            Education\r\n            Kathmandu University | Nepal, Dhulikhel\r\n            Btech in Biotechnology | August 2014 - September 2018\r\n            \r\n            \r\n            Experience\r\n            Numeric Mind/Nimble Clinical Research LLC\r\n            |Clinical Programmer/Data Analyst|\r\n            June 2020 - Feb 2022\r\n            Aastha Scientific Research Service Private Limited\r\n            |Data Analyst|\r\n            Jan 2019 - Feb 2020\r\n            \r\n            \r\n            Programming skills\r\n            SAS\r\n            Data manipulation using Base SAS and Proc SQL\r\n            MACROS\r\n            Report Generation\r\n            R programming\r\n            Data tidying, transforming, modeling and visualizaiton.\r\n            Development of dashboards using Shiny in R.\r\n            Python programming\r\n            Basic Python and Data manipulation using Pandas and Numpy.\r\n            Data visualization with Matplotlib and Seaborn.\r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n      \r\n        \r\n          \r\n            \r\n              \r\n            \r\n              Sanjay Hamal\r\n            \r\n            \r\n              \r\n                \r\n                                    \r\n                    \r\n                      Github\r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                                    \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                                  \r\n              \r\n            \r\n            \r\n              \r\n              Bio\r\n              Sanjay Hamal is a data science enthusiast and is mostly interested in data analysis.\r\n              \r\n              \r\n              Education\r\n              Kathmandu University | Nepal, Dhulikhel\r\n              Btech in Biotechnology | August 2014 - September 2018\r\n              \r\n              \r\n              Experience\r\n              Numeric Mind/Nimble Clinical Research LLC\r\n              |Clinical Programmer/Data Analyst|\r\n              June 2020 - Feb 2022\r\n              Aastha Scientific Research Service Private Limited\r\n              |Data Analyst|\r\n              Jan 2019 - Feb 2020\r\n              \r\n              \r\n              Programming skills\r\n              SAS\r\n              Data manipulation using Base SAS and Proc SQL\r\n              MACROS\r\n              Report Generation\r\n              R programming\r\n              Data tidying, transforming, modeling and visualizaiton.\r\n              Development of dashboards using Shiny in R.\r\n              Python programming\r\n              Basic Python and Data manipulation using Pandas and Numpy.\r\n              Data visualization with Matplotlib and Seaborn.\r\n              \r\n            \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    \r\n      ©Copyright Sanjay Hamal Email: contact@sanjayhamal.com.np\r\n      \r\n      \r\n\r\n  \r\n  ",
-      "last_modified": "2022-03-10T19:52:11+05:45"
+      "last_modified": "2022-03-10T21:26:36+05:45"
     },
     {
       "path": "post2022.html",
       "title": "Posts from 2022",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-03-10T19:52:12+05:45"
+      "last_modified": "2022-03-10T21:26:36+05:45"
     }
   ],
   "collections": ["posts/posts.json", "post2022/post2022.json"]
