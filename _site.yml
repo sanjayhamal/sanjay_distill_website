@@ -23,7 +23,9 @@ collections:
     
   post2022:
     categories: true
-    disqus: Sanjay-Hamal
+    disqus: 
+      shortname: https-sanjayhamal-com-np-1
+      hidden: true
     share: [twitter, linkedin, facebook]
     
 
