@@ -4,7 +4,9 @@ description: |
   Welcome to my Blog!
 output_dir: "_site"
 base_url: https://sanjayhamal.com.np
+repository_url: https://github.com/sanjayhamal/sanjay_distill_website
 navbar:
+  
   right:
     - text: "Home"
       href: index.html
