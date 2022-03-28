@@ -10,7 +10,7 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text:  "My journey!"
+    - text:  "Resume"
       href: my_journey.html
     - text: "Articles"
       href: about.html
