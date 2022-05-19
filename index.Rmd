@@ -1,5 +1,5 @@
 ---
-title: "Sanjay's website!👋"
+title: "Sanjay Hamal's website!👋"
 
 site: distill::distill_website
 ---
